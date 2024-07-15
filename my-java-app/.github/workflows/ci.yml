@@ -20,8 +20,17 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
+    - name: Display Java version
+      run: java -version
+
+    - name: Display Maven version
+      run: mvn -version
+
+    - name: List project files
+      run: ls -R
+
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -X clean package --file pom.xml
 
     - name: Run tests
       run: mvn test
